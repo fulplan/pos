@@ -2,14 +2,12 @@
 session_start();
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title>GoodTech</title>
 
     <!-- Tell the browser to be responsive to screen width -->
@@ -20,7 +18,6 @@ session_start();
     <!-- ===================================== 
 ||     PLUGINS FOR CSS                   ||
  =======================================-->
-
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="views/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
@@ -33,12 +30,6 @@ session_start();
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="views/dist/css/skins/_all-skins.min.css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -59,15 +50,8 @@ session_start();
     <script src="views/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="views/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <!-- <script src="views/dist/js/demo.js"></script> -->
-
 
 </head>
-
-<!--
-    Document Menu
- -->
 
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
 
