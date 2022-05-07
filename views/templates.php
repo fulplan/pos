@@ -1,3 +1,8 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -5,7 +10,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><b>GoodTech</b></title>
+    <title>GoodTech</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -68,7 +73,7 @@
 
 
     <?php
-    if (isset($_SESSION["new-session"]) && $_SESSION["new-session"] == "valid") {
+    if (isset($_SESSION["user-Session"]) && $_SESSION["user-Session"] == "valid") {
 
 
         echo '<div class="wrapper">';
@@ -92,7 +97,8 @@
                 $_GET["redirect"] == "clients" ||
                 $_GET["redirect"] == "sales" ||
                 $_GET["redirect"] == "create-sales" ||
-                $_GET["redirect"] == "reports"
+                $_GET["redirect"] == "reports" ||
+                $_GET["redirect"] == "logout"
             ) {
                 include "modules/" . $_GET["redirect"] . ".php";
             } else {
