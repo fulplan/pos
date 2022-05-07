@@ -29,17 +29,13 @@ session_start();
     <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="views/dist/css/skins/_all-skins.min.css">
-
-
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
 
 
     <!-- ===================================== 
 ||     PLUGINS FOR JAVASCRIPT            ||
  =======================================-->
-
     <!-- jQuery 3 -->
     <script src="views/bower_components/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
@@ -50,7 +46,6 @@ session_start();
     <script src="views/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="views/dist/js/adminlte.min.js"></script>
-
 </head>
 
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
@@ -58,19 +53,12 @@ session_start();
 
     <?php
     if (isset($_SESSION["user-Session"]) && $_SESSION["user-Session"] == "valid") {
-
-
         echo '<div class="wrapper">';
-
 
         include "modules/header.php";
         // <!-- =============================================== -->
-
-
         // <!-- =============================================== -->
         include "modules/side-bar.php";
-
-
         // <!-- =============================================== -->
         if (isset($_GET["redirect"])) {
             if (
@@ -91,9 +79,6 @@ session_start();
         } else {
             include "modules/home.php";
         }
-
-
-
         // <!-- =============================================== -->
         include "modules/footer.php";
 
@@ -102,7 +87,6 @@ session_start();
         include "modules/login.php";
     }
     ?>
-
 
 
     <script src="views/js/templates.js"></script>
