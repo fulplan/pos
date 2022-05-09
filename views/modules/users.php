@@ -18,27 +18,113 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Title</h3>
-
-                <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                        <i class="fa fa-minus"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                        <i class="fa fa-times"></i></button>
-                </div>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#AddUsermodal">
+                    Add User
+                </button>
             </div>
             <div class="box-body">
-                Start creating your amazing application!
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-                Footer
-            </div>
-            <!-- /.box-footer-->
-        </div>
-        <!-- /.box -->
+                <table class="table table-bothered table-striped tables">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>User</th>
+                            <th>Photo</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Last Login</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Barman</td>
+                            <td>Admin</td>
+                            <td><img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="40px" alt=""></td>
+                            <td>Administrator</td>
+                            <td><button class="btn btn-success btn-xs">Activate</button></td>
+                            <td>2022-12-11 12:50:21</td>
+                            <td>
+                                <div class="btn-group">
+                                    <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                                    <button class="btn btn-danger"><i class="fa fa-times"></i></button>
 
-    </section>
-    <!-- /.content -->
+                                </div>
+            </div>
+            </td>
+            <td></td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            Footer
+        </div>
+        <!-- /.box-footer-->
 </div>
-<!-- /.content-wrapper -->
+</section>
+</div>
+
+<!-- 
+    Add User modal Pop-up Box
+ -->
+
+<div id="AddUsermodal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" method="POST" enctype="multipart/form-data" action="">
+                <div class="modal-header" style="background:#3c8dbc;color:aliceblue;">
+                    <button type="button" class="close" data-dismiss="modal">&times;
+                    </button>
+                    <h4 class="modal-title">Add Users</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control input-lg" name="username" placeholder="name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                <input type="text" class="form-control input-lg" name="newname" placeholder="login name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control input-lg" name="newpassword" placeholder="login Password" required>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                    <select class="form-control input-lg" name="newProfile" id="">
+                                        <option value="">Select Profile Role</option>
+                                        <option value="Administrator">Administrator</option>
+                                        <option value="Employee">Employee</option>
+                                        <option value="CEO">C.E.O</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <div class="panel"> Submit Picture</div>
+                                    <input type="file" id="newphoto" name="newphoto">
+                                    <p class="help-block">Upload a picture maximum of 10MB.</p>
+                                    <img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="100px" alt="">
+
+                                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">close</button>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</div>
+</div>
+</div>
+</div>

@@ -46,6 +46,12 @@ session_start();
     <script src="views/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
     <script src="views/dist/js/adminlte.min.js"></script>
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="views/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <!-- DataTables -->
+    <script src="views/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="views/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 </head>
 
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
