@@ -15,9 +15,19 @@ class UsersController
                 $request = UsersModel::mdlShowUsers($table, $item, $value);
 
                 if ($request["user"] == $_POST["Username"] && $request["password"] == $_POST["Password"]) {
-                    $_SESSION["user-Session"] = "valid";
+                    $_SESSION["user-Session"] = "ok";
                     echo '<script>
-                        windows.location = "home";
+                    swal({
+                        type: "success",
+                        title: "Login Successeful, Welcome To GoodTech Inventory System",
+                        showConfirmButton: true,
+                        confirmButtonText: "Close",
+                        closeOnConfirm: false
+                    }).then((result)=>{
+                        if(result.value){
+                            window.location = "home";
+                        }
+                    });
                     </script>';
                 } else {
                     // echo '<div class="alert alert-danger"> Error Login User </div>';
@@ -30,12 +40,11 @@ class UsersController
                         closeOnConfirm: false
                     }).then((result)=>{
                         if(result.value){
-                            window.location = "users";
+                            window.location = "login";
                         }
                     });
                     </script>';
                 }
-                // var_dump($request);
             }
         }
     }
@@ -43,14 +52,35 @@ class UsersController
     Create or Register Users
      ===================*/
 
-    static public function mdlAddUser()
+    static public function addUser()
     {
-        # code...
         if (isset($_POST["newUser"])) {
             if (
-                preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["newName"]) &&
+                preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["newName"]) &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["newUser"]) &&
                 preg_match('/^[a-zA-Z0-9 ]+$/', $_POST["newPass"])
+
+                if (isset($_FILES["newphoto"]["tmp_name"])){
+                    list($width, $height) = getimagesize($_FILES["newphoto"]["tmp_name"]);
+                    $newWidth = 500;
+                    $newHeight = 500;
+
+                    // Create direcory to store the uploaded image
+                    $directories = "views/img/users/". $_POST["newphoto"];
+                    mkdir($directories, 0755);
+                    
+                    // 
+                    if ($_FILES["newphoto"]["type"] == "image/jpeg"){
+                        //
+                        $ran_number = mt_rand(100,999);
+                        $redirect = "views/img/users/". $_POST["newUser"]."/".$ran_number.".jpg";
+                        $source  = imagecreatefromjpeg($_FILES["newphoto"]["tmp_name"]);
+                        $destination = imagecreatetruecolor($newWidth, $newHeight );
+
+                        imagecopyresized($destination, $source, 0, 0, 0,0,$newWidth,$newHeight, $width, $height);
+                        imagejpeg($destination, $redirect);
+                    }
+                }
             ) {
                 $table = 'users';
                 $datas = array(
@@ -60,19 +90,21 @@ class UsersController
                     "profile" => $_POST["profile"]
                 );
 
-                $request = UsersModel::mdlAddUser($table, $datas);
+                // $request = UsersModel::mdlAddUser($table, $datas);
+                $request = UsersModel::mdAddUsers($table, $datas);
 
-                if ($request == "valid") {
+                if ($request == "added") {
+
                     echo '<script>
                     swal({
                         type: "success",
-                        title: "Adding new User successfull",
+                        title: "The User Has Been successfully",
                         showConfirmButton: true,
                         confirmButtonText: "Close",
                         closeOnConfirm: false
                     }).then((result)=>{
                         if(result.value){
-                            window.location = "users";
+                            window.location = "home";
                         }
                     });
                     </script>';

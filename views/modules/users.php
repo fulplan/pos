@@ -60,7 +60,7 @@
         </div>
         <!-- /.box-body -->
         <div class="box-footer">
-            Footer
+            FulPlan
         </div>
         <!-- /.box-footer-->
 </div>
@@ -76,8 +76,7 @@
         <div class="modal-content">
             <form role="form" method="POST" enctype="multipart/form-data">
                 <div class="modal-header" style="background:#3c8dbc;color:aliceblue;">
-                    <button type="button" class="close" data-dismiss="modal">&times;
-                    </button>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Add Users</h4>
                 </div>
                 <div class="modal-body">
@@ -85,19 +84,20 @@
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control input-lg" name="newName" placeholder="name" required>
+                                <input type="text" class="form-control input-lg" name="newName" placeholder="Name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                <input type="text" class="form-control input-lg" name="newUser" placeholder="user name" required>
+                                <input type="text" class="form-control input-lg" name="newUser" placeholder="User Name" required>
                             </div>
                         </div>
+
                         <div class="form-group">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control input-lg" name="newPass" placeholder="login Password" required>
+                                <input type="password" class="form-control input-lg" name="newPass" placeholder="User Password" required>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
@@ -111,22 +111,24 @@
                                 </div>
                                 <div class="form-group">
                                     <div class="panel"> Submit Picture</div>
-                                    <input type="file" id="newphoto" name="newphoto">
+                                    <input type="file" class="newphoto" name="newphoto">
                                     <p class="help-block">Upload a picture maximum of 10MB.</p>
-                                    <img src="views/img/users/default/anonymous.png" class="img-thumbnail" width="100px" alt="">
+                                    <img src="views/img/users/default/anonymous.png" class="img-thumbnail preview" width="100px" alt="">
                                 </div>
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default pull-right" data-dismiss="modal">close</button>
+                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">close</button>
                             <button type="submit" class="btn btn-primary">Save Changes</button>
-                            <?php
-                            $createUser = new UsersController();
-                            $createUser->mdlAddUser();
-                            ?>
+
                         </div>
                     </div>
+                </div>
+                <?php
+                $createUser = new UsersController();
+                $createUser->addUser();
+                ?>
             </form>
         </div>
     </div>

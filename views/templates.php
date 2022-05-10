@@ -65,7 +65,7 @@ session_start();
 
 
     <?php
-    if (isset($_SESSION["user-Session"]) && $_SESSION["user-Session"] == "valid") {
+    if (isset($_SESSION["user-Session"]) && $_SESSION["user-Session"] == "ok") {
         echo '<div class="wrapper">';
 
         include "modules/header.php";
@@ -103,6 +103,7 @@ session_start();
 
 
     <script src="views/js/templates.js"></script>
+    <script src="views/js/users.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
     <div class="login-box-body">
         <p class="login-box-msg">Login In Your Account</p>
 
-        <form action="" method="post">
+        <form method="post">
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" placeholder="Username" name="Username" required>
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>

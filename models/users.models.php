@@ -13,19 +13,25 @@ class UsersModel
         $start->close();
         $start = null;
     }
-    static public function mdlAddUser($table, $datas)
+
+    /*=============================================
+    ADD USER 
+    =============================================*/
+    static public function mdAddUsers($table, $datas)
     {
-        $start = Connection::connector()->prepare("INSERT INTO $table(name,user,password,profile,) VALUES(:name, :user, :password, :profile)");
-        $start->bindParam(":name", $datas["name"], PDO::PARAM_STR);
-        $start->bindParam(":user", $datas["user"], PDO::PARAM_STR);
-        $start->bindParam(":password", $datas["password"], PDO::PARAM_STR);
-        $start->bindParam(":profile", $datas["profile"], PDO::PARAM_STR);
-        if ($start->execute()) {
-            return "valid";
+        $stmt = Connection::connector()->prepare("INSERT INTO $table(name, user, password, profile) VALUES (:name, :user, :password, :profile)");
+        $stmt->bindParam(":name", $datas["name"], PDO::PARAM_STR);
+        $stmt->bindParam(":user", $datas["user"], PDO::PARAM_STR);
+        $stmt->bindParam(":password", $datas["password"], PDO::PARAM_STR);
+        $stmt->bindParam(":profile", $datas["profile"], PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            return 'added';
         } else {
-            return "error";
+            return 'error';
         }
-        $start->close();
-        $start = null;
+
+        $stmt->close();
+
+        $stmt = null;
     }
 }
